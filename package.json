@@ -2,13 +2,18 @@
 	"name": "bookish",
 	"version": "1.0.0",
 	"description": "Bookstore but online",
-	"main": "index.js",
+	"main": "src/index.js",
 	"scripts": {
+		"start": "node src/index.js",
 		"sql": "node loadsql.js"
 	},
 	"author": "",
 	"dependencies": {
 		"express": "^4.16.1",
+		"jsonwebtoken": "^8.5.1",
+		"log4js": "^6.3.0",
+		"passport": "^0.5.0",
+		"passport-jwt": "^4.0.0",
 		"pg-promise": "^10.11.0"
 	}
 }
