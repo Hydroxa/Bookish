@@ -1,0 +1,14 @@
+{
+	"name": "bookish",
+	"version": "1.0.0",
+	"description": "Bookstore but online",
+	"main": "index.js",
+	"scripts": {
+		"sql": "node loadsql.js"
+	},
+	"author": "",
+	"dependencies": {
+		"express": "^4.16.1",
+		"pg-promise": "^10.11.0"
+	}
+}
