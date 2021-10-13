@@ -1,7 +1,7 @@
-const Database = require("./queries");
-const LogFormats = require("./logFormats");
+const Database = require("./repository/database");
+const LogFormats = require("./services/logFormats");
 const express = require("express");
-const config = require("./config");
+const config = require("./setup/config");
 const app = express();
 
 app.get("/all/:property", (req, res) => {

@@ -1,3 +1,4 @@
+const { QueryFile } = require("pg-promise");
 const pgPromise = require("pg-promise")();
 
 class Database {
@@ -14,14 +15,9 @@ class Database {
 		}
 	}
 
-	static async getAllUsers() {}
-
-	static async getAllAuthors() {}
-
-	static async getAllBooks() {
-		const result = this.doQuery("SELECT * FROM books");
+	static async queryFromFile(fileName) {
+		const result = this.doQuery(new QueryFile(fileName));
 		return result;
-		// Return array
 	}
 }
 

@@ -1,7 +1,7 @@
 class LogFormats {
-	static formatError(error, context, values) {
-		return `\n-= Exception =-\n${context}\n(${error.code}) : "${error.message}"\n\n-=Stack Trace =-\n${error.stack}\n${
-			values !== undefined ? `\n -= Value Dump = -\n${serialiseObject(values, 7)}` : ""
+	static formatError(error, message, context) {
+		return `\n-= Exception =-\n${message}\n(${error.code}) : "${error.message}"\n\n-=Stack Trace =-\n${error.stack}\n${
+			context !== undefined ? `\n -= Value Dump = -\n${serialiseObject(context, 10)}` : ""
 		}`;
 	}
 
