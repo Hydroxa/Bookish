@@ -4,7 +4,7 @@
 	"description": "Bookstore but online",
 	"main": "src/index.js",
 	"scripts": {
-		"start": "node src/index.js",
+		"start": "node src/repository/migrator.js && node src/index.js",
 		"sql": "node loadsql.js"
 	},
 	"author": "",

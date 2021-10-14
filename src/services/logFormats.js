@@ -15,7 +15,7 @@ class LogFormats {
 		let output = `(${tabs !== 0 ? obj.constructor.name : ""}){\n`;
 		for (const key in obj) {
 			if (typeof obj[key] === "object") {
-				output += propPadding + key + ":" + serialiseObject(obj[key], layers - 1, tabs + 1) + "\n";
+				output += propPadding + key + ":" + this.serialiseObject(obj[key], layers - 1, tabs + 1) + "\n";
 			} else if (typeof obj[key] === "function") {
 				output += `${propPadding}${key}: function\n`;
 			} else {
