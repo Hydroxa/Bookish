@@ -1,7 +1,12 @@
-app.get("/books/:property", (req, res) => {
+const app = require("./listener");
+const Books = require("../services/books");
+
+app.get("/books/:property", async (req, res) => {
 	if (req.params["property"] === "all") {
-		//Get all book data
+		const allBooksData = await Books.getAllBooks();
+		res.send(JSON.stringify(allBooksData));
 	} else {
-		//Property is an ID
+		const bookData = await Books.getBook(req.params["property"]);
+		res.send(JSON.stringify(bookData));
 	}
 });
