@@ -6,10 +6,10 @@ class Users {
 		return await Database.doQuery(`SELECT * FROM users`);
 		//Return all unabstracted book values
 	}
-	static addUser(username, displayname, passhash) {
+	static async addUser(username, displayname, passhash) {
 		Database.doQuery(`INSERT INTO users VALUES (${username},${displayname},${passhash})`);
 	}
-	static addUsers(usernames, displaynames, passhashes) {
+	static async addUsers(usernames, displaynames, passhashes) {
 		if (usernames.length !== displaynames.length || passhashes.length !== displaynames.length) {
 			throw Error("All arrays must have the same amount of data");
 		} else {
@@ -24,11 +24,17 @@ class Users {
 	static hashPassword(password) {
 		return Crypto.createHash("sha512").update(password).digest("hex");
 	}
-	static isUserValid(username, password) {
+	static async isUserValid(username, password) {
 		const passhash = this.hashPassword(password);
+		const userCheck = await Database.doQuery(`SELECT passhash FROM users WHERE username = '${username}'`);
+		if (userCheck.length > 0) {
+			return passhash === userCheck.passhash;
+		} else {
+			return false;
+		}
 	}
-	static getBook(userID) {
-		return Database.doQuery(`SELECT * FROM users WHERE id = ${userID}`);
+	static async getBook(userID) {
+		return await Database.doQuery(`SELECT * FROM users WHERE id = ${userID}`);
 	}
 }
 

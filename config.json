@@ -1,5 +1,6 @@
 {
 	"port": 80,
 	"password": "qEtq5tQo67pycR",
-	"logDirectory": "logs"
+	"logDirectory": "logs",
+	"secret": "aLxs3hRIH3JIW56Y2I9I3HD6DsFqG1WHIkOxXUhMQC6HEtUuWpW2dXBJRn2mK6v"
 }
